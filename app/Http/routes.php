@@ -11,6 +11,7 @@ Route::get('/resource', function () {
     $authenticated = false;
     Session::set('authenticated',true);
     //dd(Session::all());
+    \Debugbar::info("xXivato1!!!!");
     if(Session::has('authenticated')) {
         if(Session::get('authenticated')== true ){
             $authenticated= true;
