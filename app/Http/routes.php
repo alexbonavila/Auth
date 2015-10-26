@@ -1,7 +1,10 @@
 <?php
 
+
+
 Route::get('/login'     ,['as'=>'auth.login',     'uses' => 'LoginController@getLogin']);
 Route::post('/postLogin',['as'=>'auth.postLogin', 'uses' => 'LoginController@postLogin']);
+
 
 
 Route::get('/', function () {
@@ -17,7 +20,7 @@ Route::get('/resource', function () {
     $authenticated = false;
     Session::set('authenticated',true);
     //dd(Session::all());
-    \Debugbar::info("xXivato1!!!!");
+
     if(Session::has('authenticated')) {
         if(Session::get('authenticated')== true ){
             $authenticated= true;
