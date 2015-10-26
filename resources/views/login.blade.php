@@ -39,6 +39,22 @@
 <div class="container">
     <div class="content">
         <div class="title">Login</div>
+
+        <form>
+            <div class="form-group">
+                <label for="email">Email addres: </label>
+                <input type="email" class="form-control" id="email" name="email"></input>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password: </label>
+                <input type="password" class="form-control" id="email" name="password"></input>
+            </div>
+            <button type="submit" class="btn btn-default">Loguin</button>
+            <button type="reset" class="btn btn-default">Reset</button>
+        </form>
+
+
     </div>
 </div>
 </body>
