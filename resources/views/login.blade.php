@@ -40,17 +40,18 @@
     <div class="content">
         <div class="title">Login</div>
 
-        <form>
+        <form method="post" action={{route ('auth.postLogin') }}>
+            <input type="hidden" value="{{csrf_token()}}" name="_token">
             <div class="form-group">
                 <label for="email">Email addres: </label>
-                <input type="email" class="form-control" id="email" name="email"></input>
+                <input type="email" class="form-control" id="email" name="email">
             </div>
 
             <div class="form-group">
                 <label for="password">Password: </label>
-                <input type="password" class="form-control" id="email" name="password"></input>
+                <input type="password" class="form-control" id="email" name="password">
             </div>
-            <button type="submit" class="btn btn-default">Loguin</button>
+            <button type="submit" class="btn btn-default">Login</button>
             <button type="reset" class="btn btn-default">Reset</button>
         </form>
 
