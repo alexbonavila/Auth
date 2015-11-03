@@ -1,5 +1,8 @@
 <?php
 
+Route::get('/patata',function(){
+    echo "hola";
+});
 
 
 Route::get('/login'     ,['as'=>'auth.login',     'uses' => 'LoginController@getLogin']);
