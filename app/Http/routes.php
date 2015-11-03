@@ -1,7 +1,8 @@
 <?php
 
 Route::get('/patata',function(){
-    echo "hola";
+    $greeating="HOLA";
+    echo $greeating;
 });
 
 
