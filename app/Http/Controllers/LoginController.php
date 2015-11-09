@@ -43,6 +43,9 @@ class LoginController extends Controller
         //$user= User::findOrFail(id);
         //$user= User::all();
         $user= User::where('email',$email)->first();
+        if($user==null){
+            return false;
+        } 
         if($user->password == $password){
             return true;
         }else{
