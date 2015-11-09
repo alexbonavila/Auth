@@ -1,8 +1,5 @@
 <?php
 
-Route::get('/patata', "PatataController@getPatata");
-
-
 Route::get('/login'     ,['as'=>'auth.login',     'uses' => 'LoginController@getLogin']);
 Route::post('/postLogin',['as'=>'auth.postLogin', 'uses' => 'LoginController@postLogin']);
 
