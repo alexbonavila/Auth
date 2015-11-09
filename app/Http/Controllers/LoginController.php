@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -38,13 +39,23 @@ class LoginController extends Controller
      * @return bool
      */
     public function login($email, $password){
-        return true;
+
+        //$user= User::findOrFail(id);
+        //$user= User::all();
+        $user= User::where('email',$email)->first();
+        if($user->password == $password){
+            return true;
+        }else{
+            return false;
+        }
+
     }
 
     /**
      * @return \Illuminate\View\View
      */
     public function getLogin(){
+
         return view('login');
     }
 }
