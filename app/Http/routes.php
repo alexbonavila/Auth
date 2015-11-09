@@ -1,9 +1,6 @@
 <?php
 
-Route::get('/patata',function(){
-    $greeating="HOLA";
-    echo $greeating;
-});
+Route::get('/patata', "PatataController@getPatata");
 
 
 Route::get('/login'     ,['as'=>'auth.login',     'uses' => 'LoginController@getLogin']);
