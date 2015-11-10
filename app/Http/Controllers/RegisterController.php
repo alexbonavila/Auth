@@ -27,5 +27,6 @@ class RegisterController extends Controller
 
         $user->save();
 
+        return redirect(route('auth.login'));
     }
 }
