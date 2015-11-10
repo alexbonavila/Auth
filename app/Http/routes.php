@@ -40,3 +40,4 @@ Route::get('/flush',function(){
 Route::get('/register',
     ['as'=>'auth.register','uses' => 'RegisterController@getRegister']
 );
+Route::post('/postRegister',['as'=>'auth.postRegister', 'uses' => 'LoginController@postRegister']);
