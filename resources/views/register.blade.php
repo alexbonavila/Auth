@@ -24,7 +24,10 @@
             display: table-cell;
             vertical-align: middle;
         }
-
+        .nomtext{
+            font-weight: bold;
+            color: Black;
+        }
         .content {
             text-align: center;
             display: inline-block;
@@ -39,9 +42,8 @@
 <div class="container">
     <div class="content">
         <div class="title">Register</div>
-            saadsdasdasdasda
         <form method="post" action={{route ('auth.postRegister') }}>
-            {!! csrf_field() !!}}
+            <input type="hidden" value="{{csrf_token()}}" name="_token">
             <div class="form-group">
                 <label for="name">User name: </label>
                 <input type="name" class="form-control" id="name" name="name">
@@ -63,7 +65,10 @@
             <button type="submit" class="btn btn-default">Register</button>
             <button type="reset" class="btn btn-default">Reset</button>
         </form>
-
+        <div class="nomtext">
+            Ja estas Registrat:
+            <a id="login" href="{{ '/login'}}">login</a>
+        </div>
 
 
     </div>
