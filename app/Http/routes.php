@@ -16,11 +16,11 @@ Route::get('/home',['as'=>'auth.home', function () {
 Route::get('/resource', function () {
 
     $authenticated = false;
-    Session::set('authenticated',true);
+    //Session::set('authenticated',true);
     //dd(Session::all());
 
     if(Session::has('authenticated')) {
-        if(Session::get('authenticated')== true ){
+        if(Session::get('authenticated')){
             $authenticated= true;
         }
     }
@@ -31,4 +31,12 @@ Route::get('/resource', function () {
         return view('login');
     }
 
+});
+
+Route::get('/flush',function(){
+    Session::flush();
+});
+
+Route::get('/register',function(){
+    echo("<h1>Aqui et registraras</h1>");
 });

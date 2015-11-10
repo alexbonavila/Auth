@@ -55,6 +55,7 @@
             <button type="reset" class="btn btn-default">Reset</button>
         </form>
 
+        <a id="register" href="{{ '/register'}}">Registra't</a>
 
     </div>
 </div>

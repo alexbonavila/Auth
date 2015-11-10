@@ -26,4 +26,36 @@ class ExampleTest extends TestCase
         $this->visit (route('auth.login'))
             ->see('Login');
     }
+
+    /**
+     * Login test
+     *@return void
+     */
+    public function testUserWithoutAccessToResource()
+    {
+        Session::set('autenticated',false);
+        $this->visit ('/resource')
+            //->seePageIs(route('auth.login'))
+            ->see('Login');
+    }
+
+    public function testUserWithAccessToResource()
+    {
+        Session::set('autenticated',true);
+        $this->visit ('/resource')
+            ->seePageIs('/resource');
+
+    }
+
+    public function testLoginPageHaveResgisterLinkAndWorkOk()
+    {
+        $this->visit('/login')
+            ->type('alexbonavila@iesebre.com','email')
+            ->type('123456','password')
+            ->click('Register')
+            ->seePageIs('/register');
+    }
+
+
+
 }
