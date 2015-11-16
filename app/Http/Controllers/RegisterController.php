@@ -16,13 +16,22 @@ class RegisterController extends Controller
         return view('register');
     }
 
-    public function postRegister()
+    public function postRegister(Request $request)
     {
+
+        $this->validate($request, [
+            'name'=> 'required|max:100',
+            'email'=> 'required|email|unique:users,email',
+            'password'=> 'required | confirmed'
+        ]);
+
+
+
         $user=new User();
 
-        $user->name=Input::get('name');
-        $user->password=bcrypt(Input::get('password'));
-        $user->email=Input::get('email');
+        $user->name=$request->get('name');
+        $user->password=$request->get('password');
+        $user->email=$request->get('email');
 
 
         $user->save();
