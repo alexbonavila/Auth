@@ -52,9 +52,10 @@
                 <input type="name" class="form-control" id="name" name="name">
             </div>
 
-            <div class="form-group">
+            <div class="form-group" id="emailFormGrup">
                 <label for="email">Email </label>
                 <input type="email" class="form-control" id="email" name="email">
+                <div v-show="exists">Email ja existeix</div>
             </div>
             <div class="form-group">
                 <label for="password">Password </label>
