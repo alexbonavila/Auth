@@ -4,6 +4,9 @@
     <title>Laravel</title>
 
     <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+    <link href="css/all.css" rel="stylesheet" type="text/css">
+    <link href="css/app.css" rel="stylesheet" type="text/css">
+
 
     <style>
         html, body {
@@ -62,8 +65,8 @@
                 <input type="password" class="form-control" id="password_confirms" name="password_confirms">
             </div>
 
-            <button type="submit" class="btn btn-default">Register</button>
-            <button type="reset" class="btn btn-default">Reset</button>
+            <button type="submit" class="btn btn-primary">Register</button>
+            <button type="reset" class="btn btn-primary">Reset</button>
         </form>
         <div class="nomtext">
             Ja estas Registrat:
@@ -72,6 +75,8 @@
 
 
     </div>
+    <script src="{{asset('js/all.js')}}"></script>
+    <script src="{{asset('js/main.js')}}"></script>
 </div>
 </body>
 </html>
