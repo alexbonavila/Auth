@@ -4,12 +4,19 @@
 
 var Vue = require('vue');
 
-new Vue({
-    el:'#emailFormGrup',
+var vm=new Vue({
+
+    el: '#email',
     data: {
-        exists: false
+        placeholder:"youremail@gmail.com"
     },
     methods:{
+        sayhello:function(){
 
+        },
+        checkEmailsExists: function(item){
+            console.debug("hey")
+        }
     }
+
 });

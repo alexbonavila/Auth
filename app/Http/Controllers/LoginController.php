@@ -15,14 +15,31 @@ use Illuminate\Support\Facades\Input;
  */
 class LoginController extends Controller
 {
-    private function logged(){
-        Auth::loginUsingId(1);
+    public function postLogin(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+        $email = $request->get("email");
+        $password = $request->get("password");
+        if (Auth::attempt(['email' => $email, 'password' => $password]))
+        {
+            // Authentication passed...
+            return redirect()->route('auth.home');
+        }
+        else
+        {
+            return redirect()->route('auth.getLogin');
+        }
     }
-    private function unlogged(){
-        Auth::logout();
+    /**
+     * @return \Illuminate\View\View
+     */
+    public function getLogin()
+    {
+        return view('login');
     }
-
-    
 
 //    /**
 //     * Process a login HTTP POST
@@ -63,12 +80,4 @@ class LoginController extends Controller
 //        }
 //
 //    }
-
-    /**
-     * @return \Illuminate\View\View
-     */
-    public function getLogin(){
-
-        return view('login');
-    }
 }
