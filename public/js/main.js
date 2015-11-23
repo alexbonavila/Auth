@@ -10332,8 +10332,8 @@ new Vue({
     el: '#emailFormGrup',
     data: {
         exists: false
-
-    }
+    },
+    methods: {}
 });
 
 },{"vue":67}]},{},[69]);

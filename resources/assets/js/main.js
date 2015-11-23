@@ -8,6 +8,8 @@ new Vue({
     el:'#emailFormGrup',
     data: {
         exists: false
+    },
+    methods:{
 
     }
 });

@@ -39,7 +39,7 @@ class ExampleTest extends TestCase
             ->see('Login');
     }
 
-    public function testUserWithAccessToResource()
+    public function atestUserWithAccessToResource()
     {
         Session::set('autenticated',true);
         $this->visit ('/resource')
@@ -47,7 +47,7 @@ class ExampleTest extends TestCase
 
     }
 
-    public function testLoginPageHaveResgisterLinkAndWorkOk()
+    public function atestLoginPageHaveResgisterLinkAndWorkOk()
     {
         $this->visit('/login')
             ->type('alexbonavila@iesebre.com','email')

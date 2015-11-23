@@ -49,12 +49,17 @@
             <input type="hidden" value="{{csrf_token()}}" name="_token">
             <div class="form-group">
                 <label for="name">User name: </label>
-                <input type="name" class="form-control" id="name" name="name">
+                <input type="name" class="form-control" id="name" name="name"
+                       placeholder="ex@ex.com"
+                       value="{{old('email')}}"
+                       required>
+
             </div>
 
             <div class="form-group" id="emailFormGrup">
                 <label for="email">Email </label>
                 <input type="email" class="form-control" id="email" name="email">
+
                 <div v-show="exists">Email ja existeix</div>
             </div>
             <div class="form-group">

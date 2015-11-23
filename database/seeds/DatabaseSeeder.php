@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,6 +17,18 @@ class DatabaseSeeder extends Seeder
 
         // $this->call(UserTableSeeder::class);
 
+        $this->seedUserTable();
+
         Model::reguard();
     }
+
+    public function seedUserTable()
+    {
+        $user = new User();
+        $user->name="alex";
+        $user->password=(env('PASSWORD_ESTIMAT','123456'));
+        $user->email="alexbonavila@iesebre.com";
+        $user->save();
+    }
+
 }

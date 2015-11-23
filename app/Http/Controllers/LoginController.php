@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 
 /**
@@ -14,45 +15,54 @@ use Illuminate\Support\Facades\Input;
  */
 class LoginController extends Controller
 {
-    /**
-     * Process a login HTTP POST
-     * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function postLogin(Request $request){
-        //dd:($request->all());
-        //\Debugbar::info("getLogin");
-        //echo"hola";
-
-        if($this->login($request->email,$request->password)){
-            //REDIRECT TO HOME
-            return redirect()->route('auth.home');
-        }else{
-            //REDIRECT BACK
-            return redirect()->route('auth.login');
-        }
+    private function logged(){
+        Auth::loginUsingId(1);
+    }
+    private function unlogged(){
+        Auth::logout();
     }
 
-    /**
-     * @param $email
-     * @param $password
-     * @return bool
-     */
-    public function login($email, $password){
+    
 
-        //$user= User::findOrFail(id);
-        //$user= User::all();
-        $user= User::where('email',$email)->first();
-        if($user==null){
-            return false;
-        }
-        if($user->password == $password){
-            return true;
-        }else{
-            return false;
-        }
-
-    }
+//    /**
+//     * Process a login HTTP POST
+//     * @param Request $request
+//     * @return \Illuminate\Http\RedirectResponse
+//     */
+//    public function postLogin(Request $request){
+//        //dd:($request->all());
+//        //\Debugbar::info("getLogin");
+//        //echo"hola";
+//
+//        if($this->login($request->email,$request->password)){
+//            //REDIRECT TO HOME
+//            return redirect()->route('auth.home');
+//        }else{
+//            //REDIRECT BACK
+//            return redirect()->route('auth.login');
+//        }
+//    }
+//
+//    /**
+//     * @param $email
+//     * @param $password
+//     * @return bool
+//     */
+//    public function login($email, $password){
+//
+//        //$user= User::findOrFail(id);
+//        //$user= User::all();
+//        $user= User::where('email',$email)->first();
+//        if($user==null){
+//            return false;
+//        }
+//        if($user->password == $password){
+//            return true;
+//        }else{
+//            return false;
+//        }
+//
+//    }
 
     /**
      * @return \Illuminate\View\View
