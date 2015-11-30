@@ -16,5 +16,5 @@ elixir(function(mix) {
     //mix.less('admin-lte/AdminLTE.less');
     //mix.less('bootstrap/bootstrap.less');
 
-    mix.browserify('js/main.js');
+    mix.browserify('main.js');
 });

@@ -10328,12 +10328,26 @@ module.exports = Watcher
 
 var Vue = require('vue');
 
-new Vue({
-    el: '#emailFormGrup',
+var vm = new Vue({
+
+    el: '#email',
     data: {
-        exists: false
+        placeholder: "youremail@gmail.com",
+        url: "http://auth.app/checkEmailsExists"
     },
-    methods: {}
+    methods: {
+
+        checkEmailsExists: function checkEmailsExists() {
+            var email = $('email').value();
+            console.debug("checkEmailsExists EXECUTED!");
+            console.debug("A punt de cridar: ");
+            console.debug(this.url);
+            console.debug(email);
+            var url = this.url + '?email=' + email;
+            console.debug(url);
+        }
+    }
+
 });
 
 },{"vue":67}]},{},[69]);

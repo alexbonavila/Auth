@@ -13,8 +13,16 @@ Route::get('/home',['as'=>'auth.home', function () {
     return view('home');
 }]);
 
-Route::get('/resource', function () {
-/*
+Route::get('/phpinfo', function(){
+    return phpinfo();
+});
+
+Route::get('/resource', ['as'=>'resource', 'middleware'=>'auth', function(){
+    return view('resource');
+}]);
+
+/*Route::get('/resource', function () {
+
     $authenticated = false;
     //Session::set('authenticated',true);
     //dd(Session::all());
@@ -30,7 +38,7 @@ Route::get('/resource', function () {
     } else{
        return redirect()->route('auth.login');
     }
-*/
+
 
     if(Auth::check()){
         return view('resource');
@@ -38,7 +46,7 @@ Route::get('/resource', function () {
         return redirect()->route('auth.login');
     }
 
-});
+});*/
 
 Route::get('/flush',function(){
     Session::flush();
@@ -48,3 +56,5 @@ Route::get('/register',
     ['as'=>'auth.register','uses' => 'RegisterController@getRegister']
 );
 Route::post('/postRegister',['as'=>'auth.postRegister', 'uses' => 'RegisterController@postRegister']);
+
+Route::post('/checkEmailsExists',['as'=>'auth.checkEmailsExists', 'uses' => 'checkEmailsExists@checkEmailsExists']);

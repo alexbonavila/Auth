@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
     <title>Laravel</title>
 
@@ -58,7 +58,8 @@
                 <input  type="email" class="form-control" id="email" name="email"
                         placeholder="@{{placeholder}}"
                         value="{{old('email')}}"
-                        required>
+                        required
+                        v-on:blur=>
 
                 <div v-show="exists">Email ja existeix</div>
             </div>
